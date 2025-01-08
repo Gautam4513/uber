@@ -61,3 +61,40 @@ Register a new user in the system.
     - `password`(string): password of the user `min length:6`
 
 - `token`(string): JWT token
+
+## access to profile
+
+### end point
+`/users/profile `
+
+### method
+
+`GET`
+
+### request body
+- `token`(string): which is in the cookies or in the header
+
+### response body
+- `user`(object):
+    - `fullname`(object):
+        - `firstName`(string): first name of the user `min length:3`
+        - `lastName`(string):last name of the user
+    - `email`(string): email of the user
+    - `password`(string): password of the user `min length:6`
+
+
+## Logout user
+
+### end point
+`/users/logout`
+
+### method
+`GET`
+
+### request body
+- `token`(string): which is in the cookies or in the header
+
+### response body
+
+-  `message`(string): succesfully loged out
+
