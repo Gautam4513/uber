@@ -39,3 +39,25 @@ Register a new user in the system.
 
 - `token`(string): JWT token
 
+## Login user
+
+#### end point
+`/users/login`
+
+#### method
+`PORT`
+
+#### request Body
+
+- `email`(string)
+- `password`(string)
+
+#### response Body
+- `user`(object):
+    - `fullname`(object):
+        - `firstName`(string): first name of the user `min length:3`
+        - `lastName`(string):last name of the user
+    - `email`(string): email of the user
+    - `password`(string): password of the user `min length:6`
+
+- `token`(string): JWT token
