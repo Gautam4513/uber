@@ -180,7 +180,7 @@ Register a new user in the system.
         - `capacity `(Number): 
         - `type `(String): `bike` or `car` or `auto`
     - `_id `:  
-    - `email `(String):  
+    - `email `(String):  email of captain
     - `password `(String):  
     - `status `(String): `active` or `inactive`(default)
     - `__v `(Number): 
