@@ -1,6 +1,12 @@
 # User API Documentation
+<hr>
+
+# User
+
+<hr>
 
 ## Register User
+<hr>
 Register a new user in the system.
 
 ### Endpoint 
@@ -38,8 +44,10 @@ Register a new user in the system.
     - `password`(string): password of the user `min length:6`
 
 - `token`(string): JWT token
+<hr>
 
 ## Login user
+<hr>
 
 #### end point
 `/users/login`
@@ -61,8 +69,10 @@ Register a new user in the system.
     - `password`(string): password of the user `min length:6`
 
 - `token`(string): JWT token
+<hr>
 
 ## access to profile
+<hr>
 
 ### end point
 `/users/profile `
@@ -82,8 +92,10 @@ Register a new user in the system.
     - `email`(string): email of the user
     - `password`(string): password of the user `min length:6`
 
+<hr>
 
 ## Logout user
+<hr>
 
 ### end point
 `/users/logout`
@@ -98,3 +110,45 @@ Register a new user in the system.
 
 -  `message`(string): succesfully loged out
 
+
+<hr>
+
+# Captain
+<hr>
+
+## Register captain
+<hr>
+
+### end point
+`/captains/register`
+
+### method
+`POST`
+
+## request body
+
+- `fullName`(object):
+    - `firstName`(String):
+    - `lastName`(String):
+- `email`(String):
+- `password`(String):
+- `vehicle`(Object):
+    - `color`(String):
+    - `plate`(String):
+    - `capacity`(Number):
+    - `type`(Sting): `bike`,`car` or `auto`
+
+### Exaple Response
+- `user`(object):
+    - `fullname`(object):
+        - `firstName`(string): first name of the user `min length:3`
+        - `lastName`(string):last name of the user
+    - `email`(string): email of the user
+    - `password`(string): password of the user `min length:6`
+    - `vehicle`(Object):
+        - `color`(String): color of the vehicle
+        - `plate`(String): number plate
+        - `capacity`(Number):
+        - `type`(Sting): `bike` or `car` or `auto` 
+
+- `token`(string): JWT token
