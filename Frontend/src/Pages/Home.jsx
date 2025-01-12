@@ -6,6 +6,7 @@ import VehiclePanel from '../Components/VehiclePanel'
 import ConfirmVehiclePanel from '../Components/ConfirmVehiclePanel'
 import LookingForDriver from '../Components/LookingForDriver'
 import WaitingForDriver from '../Components/WaitingForDriver'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [pickup, setPickup] = useState('')
@@ -106,13 +107,16 @@ const Home = () => {
   }
   return (
     <div className='relative'>
-      <div className='absolute top-5 left-5 '>
+      <div className='fixed  top-5 flex justify-between items-center w-screen px-3  z-10 '>
         <img className='w-28 ' src="./imges/uber-logo-vector-png-uber-logo-3196.png" alt="uer logo" />
+        <Link to='/user/logout' className='w-10 h-10 bg-white rounded-full flex justify-center items-center '>
+        <i className="ri-logout-box-r-line"></i>
+        </Link>
       </div>
       <div className='w-screen h-screen'>
         <img className='w-full h-full  object-fill' src="https://th.bing.com/th/id/R.2b6b6c31e9c26e93180ab83eb58dc018?rik=6gulESQ4Qq2x%2fw&riu=http%3a%2f%2fwww.technewsworld.com%2farticle_images%2f2015%2f82763_620x330.jpg&ehk=W5GcbLegEcnGDMsjlC7ZY9iUf44hOr9ip4utoE2weRc%3d&risl=&pid=ImgRaw&r=0" alt="map img" />
       </div>
-      <div className='w-screen h-screen absolute top-0 flex flex-col justify-end'>
+      <div className='w-screen h-screen absolute top-0 flex flex-col justify-end z-20'>
         <div className='bg-white h-[30%] py-3 px-5 rounded-t-lg relative' >
           <form
             onSubmit={(e) => {
@@ -155,7 +159,7 @@ const Home = () => {
         </div>
 
 
-        <div ref={PanelRef} className='bg-white px-5 h-[0%]'>
+        <div ref={PanelRef} className='bg-white z-20 px-5 h-[0%]'>
           <LocationSearch setPanelOpen={setPanelOpen} setVehiclePanelOpen={setVehiclePanelOpen} />
         </div>
 
