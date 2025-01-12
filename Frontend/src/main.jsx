@@ -5,14 +5,18 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import 'remixicon/fonts/remixicon.css'
 import UserContext from './Context/UserContext.jsx'
+import CaptainContext from './Context/CaptainContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UserContext>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-    </UserContext>
+    <CaptainContext>
+      <UserContext>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </UserContext>
+
+    </CaptainContext>
 
   </StrictMode>,
 )

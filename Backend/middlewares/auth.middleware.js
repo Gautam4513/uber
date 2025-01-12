@@ -8,15 +8,15 @@ module.exports.authUser = async (req , res, next)=>{
     const token =req.cookies.token || req.headers.authorization?.split(' ')[1];
     console.log(token)
     if(!token){
-        res.status(401).json({
-            message:'Unauthorized'
+        res.status(400).json({
+            message:'Unauthorized 12'
         })
     }
 const isBlackListed = await blackListTokenModel.findOne({token});
 
 if(isBlackListed){
-    return res.status(401).json({
-        message:"Unauthorized"
+    return res.status(400).json({
+        message:"Unauthorized 19"
     })
 }
     try{
@@ -28,13 +28,14 @@ if(isBlackListed){
         return next()
     }catch(err){
         res.status(401).json({
-            message:'Unauthorized'
+            message:'Unauthorized 31'
         })
     }
 }
 
 module.exports.authCaptain = async (req , res, next)=>{
     const token = req.cookies.token || req.headers.authorization?.split(' ')[1]
+    console.log(token)
     if(!token){
         return res.status(400).json({
             message:'Unauthorized'
