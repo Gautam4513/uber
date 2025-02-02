@@ -16,6 +16,8 @@ import CaptainLogout from './Pages/CaptainLogout'
 import Riding from './Pages/Riding'
 import CaptainRiding from './Pages/CaptainRiding'
 
+import LiveLocation2 from './Components/LiveLocation2'
+
 
 
 const App = () => {
@@ -25,8 +27,14 @@ const App = () => {
         <Route path='/' element={<Start />} />
         <Route path='/login' element={<UserLogin />} />
         <Route path='/singup' element={<UserSingup />} />
-        <Route path='/riding' element={<Riding />}/>
-        <Route path='/captain-riding' element={<CaptainRiding />}/>
+        <Route path='/riding' element={ <UserProtectedWrapper>
+            <Riding />
+          </UserProtectedWrapper>}/>
+        <Route path='/captain-riding' element={
+        
+        <CaptainProtectedWrapper>
+          <CaptainRiding />
+        </CaptainProtectedWrapper>}/>
         <Route path='/captain-login' element={<CaptainLogin />} />
         <Route path='/captain-singup' element={<CaptainSingup />} />
         <Route path='/home' element={
@@ -54,6 +62,8 @@ const App = () => {
             </CaptainProtectedWrapper>
           }
         />
+       
+        <Route path="/live-location2" element={<LiveLocation2/>}/>
       </Routes>
     </div>
   )

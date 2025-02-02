@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { userDataContext } from '../Context/UserContext'
+import SoketContext, { SoketServicesContext } from '../Context/soketContext'
 
 const UserLogin = () => {
+   const {sendMessage , receiveMessage } = useContext(SoketServicesContext)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState('')
 
@@ -22,6 +24,10 @@ const UserLogin = () => {
 
         if(response.status === 200){
             const data = response.data
+            sendMessage('join',{
+                userType:"user",
+                userId:data.user._id
+            })
             setUser(data.user)
             localStorage.setItem('token',data.token)
             navigate('/home')

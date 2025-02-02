@@ -17,10 +17,10 @@ const FinishRide = (props) => {
                     <div className='flex justify-between w-full items-center bg-yellow-400 rounded-lg'>
                         <div className='py-3 px-2 flex items-center gap-2'>
                             <img className='w-14 aspect-square object-cover rounded-full' src="https://img.freepik.com/free-photo/portrait-hesitant-man-purses-lips-looks-bewilderment-feels-doubt_273609-16785.jpg" alt="" />
-                            <h1 className='text-xl font-semibold'>Deep Muchadiya</h1>
+                            <h1 className='text-xl font-semibold'>{(props.ride?.userId?.fullName?.firstName)+" "+(props.ride?.userId?.fullName?.lastName)}</h1>
                         </div>
                         <div className='text-right px-3'>
-                            <h1 className='font-bold text-xl'>&#8377; 2.2 KM</h1>
+                            <h1 className='font-bold text-xl'>&#8377;  {props.ride?.distance/1000} KM</h1>
                             <p className='text-md font-medium'>Distence</p>
                         </div>
                     </div>
@@ -32,10 +32,10 @@ const FinishRide = (props) => {
                         <i className="ri-map-pin-2-fill"></i>
                         <div>
                             <h2 className='text-xl font-bold'>
-                                562/11-A
+                                pickUp
                             </h2>
                             <p>
-                                kalavad road,rajkot
+                                {props.ride?.pickUp}
                             </p>
                         </div>
                     </div>
@@ -44,10 +44,10 @@ const FinishRide = (props) => {
                         <i className="ri-map-pin-4-fill"></i>
                         <div>
                             <h2 className='text-xl font-bold'>
-                                562/12-A
+                                Destination
                             </h2>
                             <p>
-                                kalavad road,rajkot
+                               {props.ride?.destination}
                             </p>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ const FinishRide = (props) => {
                     <div className='flex items-center gap-5 py-2'>
                         <i className="ri-currency-fill"></i>
                         <div>
-                            <h2 className='text-xl font-bold'>&#8377; 193.58</h2>
+                            <h2 className='text-xl font-bold'>&#8377; {props.ride?.fare}</h2>
                         </div>
                     </div>
 
@@ -64,7 +64,8 @@ const FinishRide = (props) => {
                 <div className='w-full   font-semibold py-3 rounded-lg flex justify-between items-center gap-2 flex-col '>
 
                     <button
-                        onClick={() => {
+                        onClick={async () => {
+                           await props.rideCompleted()
                             props.setFinishRideOpen(false)
                         }}
                         className='w-full bg-green-500 text-white font-semibold py-3 rounded-lg active:bg-green-800'>Finish Ride</button>

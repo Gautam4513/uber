@@ -8,7 +8,7 @@ module.exports.authUser = async (req , res, next)=>{
     const token =req.cookies.token || req.headers.authorization?.split(' ')[1];
     console.log(token)
     if(!token){
-        res.status(400).json({
+       return res.status(400).json({
             message:'Unauthorized 12'
         })
     }
@@ -24,7 +24,7 @@ if(isBlackListed){
         const user =await userModel.findById(decoded._id)
 
         req.user = user
-        console.log(user)
+        // console.log(user)
         if(!user){
             return res.status(400).json({
                 message:'Unauthorized 29'

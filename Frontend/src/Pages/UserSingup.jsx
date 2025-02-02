@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { userDataContext } from '../Context/UserContext'
+import { SoketServicesContext } from '../Context/soketContext'
 
 const UserSingup = () => {
+    const {sendMessage , receiveMessage } = useContext(SoketServicesContext)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -27,6 +29,10 @@ const UserSingup = () => {
         const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`,newUser)
         console.log(response)
         if(response.status === 201){
+            sendMessage('join',{
+                userType:"user",
+                userId:response.data.user._id
+            })
             userData.setUser(response.data.user)
             console.log(userData.user)
             localStorage.setItem('token',response.data.token)

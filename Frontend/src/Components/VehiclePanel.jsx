@@ -20,6 +20,7 @@ const VehiclePanel = (props) => {
                 <div
                     onClick={() => {
                         props.setConfirmVehiclePanelOpen(true)
+                        props.setVehicleType('car')
                     }}
                     className='flex justify-between items-center bg-[#eee] overflow-hidden rounded-lg border border-gray-500 active:border-gray-950 w-full'>
                     <div className=' w-24 aspect-square  flex justify-center items-center'>
@@ -36,7 +37,7 @@ const VehiclePanel = (props) => {
                         <div className='text-sm'>Afortable car Uber</div>
                     </div>
                     <div className='price font-bold text-xl px-2 '>&#8377;
-                        193.58</div>
+                        {props.fare.car}</div>
                 </div>
 
 
@@ -44,6 +45,7 @@ const VehiclePanel = (props) => {
 
                 <div onClick={() => {
                     props.setConfirmVehiclePanelOpen(true)
+                    props.setVehicleType('bike')
                 }} className='flex justify-between items-center bg-[#eee] overflow-hidden rounded-lg border border-gray-500 active:border-gray-950 w-full'>
                     <div className=' w-24 aspect-square  flex justify-center items-center'>
                         <img src="./imges/bike.webp" alt="car" />
@@ -59,7 +61,7 @@ const VehiclePanel = (props) => {
                         <div className='text-sm'>Afortable bike Uber</div>
                     </div>
                     <div className='price font-bold text-xl px-2 '>&#8377;
-                        65.58</div>
+                    {props.fare.bike}</div>
                 </div>
 
 
@@ -71,9 +73,10 @@ const VehiclePanel = (props) => {
 
                 <div onClick={() => {
                     props.setConfirmVehiclePanelOpen(true)
+                    props.setVehicleType('auto')
                 }} className='flex justify-between items-center bg-[#eee] overflow-hidden rounded-lg border border-gray-500 active:border-gray-950 w-full'>
                     <div className=' w-24 aspect-square  flex justify-center items-center'>
-                        <img src="./imges/car.png" alt="car" />
+                        <img src="./imges/auto.png" alt="car" />
                     </div>
                     <div className=' flex-1 w-full h-full py-1 px-1'>
                         <h2 className='text-xl font-semibold flex justify-start items-center'>Auto
@@ -86,7 +89,7 @@ const VehiclePanel = (props) => {
                         <div className='text-sm'>Afortable auto Uber</div>
                     </div>
                     <div className='price font-bold text-xl px-2 '>&#8377;
-                        110.58</div>
+                    {props.fare.auto}</div>
                 </div>
 
 

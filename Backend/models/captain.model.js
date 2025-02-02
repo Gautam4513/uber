@@ -35,6 +35,9 @@ const captainSchema = new mongoose.Schema({
     soketId:{
         type:String
     },
+    ernning:{
+        type:Number
+    },
     vehicle:{
         color:{
             type:String,
@@ -54,7 +57,7 @@ const captainSchema = new mongoose.Schema({
         }
     },
     location:{
-        lat:{
+        ltd:{
             type:Number
         },
         lng:{

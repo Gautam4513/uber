@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { CaptainDataContext } from '../Context/CaptainContext'
+import { SoketServicesContext } from '../Context/soketContext'
 
 const CaptainSingup = () => {
+    const {sendMessage , receiveMessage }=useContext(SoketServicesContext)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -36,6 +38,10 @@ const CaptainSingup = () => {
         const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/register`,captain)
         if(response.status === 201){
             const data = response.data
+            sendMessage('join',{
+                userType:"captain",
+                userId:data.captain._id
+            })
             localStorage.setItem('token',data.token)
             setCaptainData(data.captain)
             console.log(captainData)

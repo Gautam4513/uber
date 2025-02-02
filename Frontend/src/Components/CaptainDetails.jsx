@@ -1,15 +1,15 @@
 import React from 'react'
 
-const CaptainDetails = () => {
+const CaptainDetails = ({captainData}) => {
     return (
-        <div>
+        <div className='bg-white'>
             <div className='flex justify-between w-full items-center'>
                 <div className='py-3 px-2 flex items-center gap-2'>
                     <img className='w-14 aspect-square object-cover rounded-full' src="https://img.freepik.com/free-photo/portrait-hesitant-man-purses-lips-looks-bewilderment-feels-doubt_273609-16785.jpg" alt="" />
-                    <h1 className='text-xl font-semibold'>Deep Muchadiya</h1>
+                    <h1 className='text-xl font-semibold'>{(captainData.fullName.firstName)+" "+ (captainData.fullName.lastName)}</h1>
                 </div>
                 <div className='text-right px-3'>
-                    <h1 className='font-bold text-xl'>&#8377; 295.32</h1>
+                    <h1 className='font-bold text-xl'>&#8377; {captainData.ernning}</h1>
                     <p className='text-md font-medium'>Earnd</p>
                 </div>
             </div>

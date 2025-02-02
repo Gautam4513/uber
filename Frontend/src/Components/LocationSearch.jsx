@@ -1,29 +1,39 @@
 import React from 'react'
 
-const LocationSearch = (props) => {
+const LocationSearch = ({
+  setPanelOpen,
+  setVehiclePanelOpen,
+  setSuggestion,
+  suggestion,
+  activeFild,
+  setPickup,
+  setDestination
 
-    const sampleData = ['mota mava,kalavad road,rajkot1',
-    'mota mava,kalavad road,rajkot2',
-    'mota mava,kalavad road,rajkot3',
-    'mota mava,kalavad road,rajkot4',
-    'mota mava,kalavad road,rajkot5',
-    'mota mava,kalavad road,rajkot6'
-]
+}) => {
+console.log(suggestion)
+   
   return (
 
-    <div className='flex flex-col justify-between items-center gap-3 overflow-auto h-full'>
+    <div className='flex h-full flex-col justify-between items-center gap-3 overflow-auto '>
 
 
     {
-        sampleData.map((data,index)=>{
+        suggestion.map((data,index)=>{
             return  <div 
             onClick={()=>{
-                props.setPanelOpen(false)
-                props.setVehiclePanelOpen(true)
+                if(activeFild==="pickup"){
+                  setPickup(data.description)
+                  setSuggestion([])
+                }
+                else{
+                  setDestination(data.description)
+                  setSuggestion([])
+                }
+                
             }}
-            key={index} className='flex justify-start bg-gray-300 items-center gap-2 px-3 py-5 rounded-lg border border-gray-400 active:border-gray-950'>
+            key={index} className='flex w-full justify-start bg-gray-300 items-center gap-1 px-3 py-5 rounded-lg border border-gray-400 active:border-gray-950'>
             <div className='bg-[#eee] rounded-full w-8 aspect-square flex justify-center items-center'><i className="ri-map-pin-2-fill"></i></div>
-            <div className='font-semibold overflow-hidden w-full'>{data} </div>
+            <div className='font-semibold overflow-hidden w-full'>{data.description} </div>
         </div> 
         })
     }

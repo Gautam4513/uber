@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { CaptainDataContext } from '../Context/CaptainContext'
+import { SoketServicesContext } from '../Context/soketContext'
 
 const CaptainLogin = () => {
+    const {sendMessage , receiveMessage }=useContext(SoketServicesContext)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
@@ -19,6 +21,10 @@ const CaptainLogin = () => {
 
         if(response.status === 200){
             const data = response.data
+            sendMessage('join',{
+                userType:"captain",
+                userId:data.captain._id
+            })
             localStorage.setItem('token',data.token)
             setCaptainData(data.captain)
             navigate('/captain-home')

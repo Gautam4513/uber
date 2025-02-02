@@ -1,3 +1,4 @@
+const captainModel = require('../models/captain.model');
 const rideModel = require('../models/ride.model')
 const { getDistanceTime } = require('./maps.services')
 const crypto = require('crypto');
@@ -29,6 +30,12 @@ const calculateFare = (distanceTime) => {
         bike: Math.floor(baseCost.bike + ((distanceTime.distance.value / 1000) * perKMCost.bike) + ((distanceTime.duration.value / 60) * perMinCost.bike))
     }
     return totalCost
+}
+
+module.exports.getFare = async (pickUp, destination)=>{
+
+   const distanceTime= await getDistanceTimeFunction(pickUp , destination)
+   return calculateFare(distanceTime)
 }
 
 function generateOtp() {
@@ -69,4 +76,17 @@ module.exports.createRide = async ({
         throw error
     }
 
+}
+
+module.exports.rideComplated = async (rideId)=>{
+    const ride = await rideModel.findById(rideId).populate('userId').populate('captain')
+    try{
+        await captainModel.findOneAndUpdate({_id:ride.captain._id},{ernning:(ride.captain.ernning+ride.fare)})
+        await rideModel.findByIdAndUpdate(rideId,{status:"completed"})
+        console.log(ride.userId.soketId,"this is user id")
+        return (ride.userId.soketId)
+    }catch(error){
+        console.log(error)
+        throw error
+    }
 }
