@@ -1,1 +1,27 @@
-![demo-video](https://github-production-user-asset-6210df.s3.amazonaws.com/143866250/415952552-4f0a2fdb-0450-4a81-a941-4f08b10de50b.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250223%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250223T024500Z&X-Amz-Expires=300&X-Amz-Signature=9e5f1cd57e5b764c355369df4f00cb6971027c6a4305a7c8f9ceefeb3ed01cad&X-Amz-SignedHeaders=host)
+# 🚖 Uber Clone - MERN Stack Project
+
+This is a **fully functional Uber Clone** built using the **MERN stack**, integrating real-time communication, authentication, and smooth UI animations. 
+
+## Demo video
+<a href="https://youtu.be/oG0wffoAsj4">
+<img src="https://img.youtube.com/vi/1tMKr3qvXHc/0.jpg"/></a>
+
+
+## ✨ Features
+- **User & Driver Authentication** (JWT & bcrypt)
+- **Real-time Ride Requests & Updates** (Socket.io)
+- **Interactive Google Maps Integration** (Google Maps API)
+- **Seamless Routing** (React Router DOM)
+- **Smooth Animations** (GSAP)
+- **Secure API Calls** (Axios)
+- **Optimized Backend with Express.js & MongoDB**
+
+## 🛠️ Tech Stack
+- **Frontend:** React.js, React Router DOM, GSAP, Axios  
+- **Backend:** Node.js, Express.js, MongoDB  
+- **Authentication:** JSON Web Token (JWT), bcrypt  
+- **Real-time Communication:** Socket.io  
+- **Mapping & Location Services:** Google Maps API 
+
+# 🏆 Contribute & Star the Repo ⭐
+If you find this project useful, consider giving it a star ⭐ and contributing to its development!
